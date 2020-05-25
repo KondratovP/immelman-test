@@ -1,8 +1,16 @@
 <template>
-  <div id="app">
-    <div id="nav"><router-link to="/">Home</router-link> |</div>
+  <v-app color="secondary">
     <router-view />
-  </div>
+  </v-app>
 </template>
 
-<style lang="scss"></style>
+<script lang="ts">
+import Vue from "vue";
+
+export default Vue.extend({
+  name: "App",
+  data: () => ({})
+});
+</script>
+
+<style lang="scss" scoped></style>
