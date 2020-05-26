@@ -1,5 +1,5 @@
 <template>
-  <div v-if="history.length">
+  <div class="d-flex align-center flex-column" v-if="history.length">
     <v-chip class="mb-5" v-for="(item, index) in history" :key="index">
       <v-btn text link @click="() => pushCurrentCharacter(item)">
         <span class="overline">

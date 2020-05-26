@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto my-12" max-width="374">
+  <v-card v-if="character" class="mx-auto my-12" max-width="374">
     <v-img height="250" src="@/assets/default.png" contain />
 
     <v-card-title v-html="character.name" />
@@ -11,7 +11,7 @@
 
     <v-divider class="mx-4"></v-divider>
 
-    <v-list-group class="px-3">
+    <v-list-group v-if="character" class="px-3">
       <v-card-text class="subtitle-1">featured films</v-card-text>
       <v-list-item v-for="(link, i) in character.films" :key="i">
         <v-btn color="info" text link :href="link"> {{ link }} </v-btn>
@@ -26,6 +26,12 @@
       </v-btn>
     </v-card-actions>
   </v-card>
+  <v-skeleton-loader
+    v-else
+    class="mx-auto my-12"
+    min-width="500"
+    type="card"
+  ></v-skeleton-loader>
 </template>
 
 <script lang="ts">

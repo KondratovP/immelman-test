@@ -14,7 +14,7 @@ export default function(axios: AxiosInstance) {
 
   async function characterById(id: number): Promise<SwapiCharacterModel | undefined> {
     try {
-      const res = await axios.get(`/people/${id}`);
+      const res = await axios.get(`/people/${id}?page=1`);
       return res.data as SwapiCharacterModel;
     } catch (err) {
       console.log(err);
