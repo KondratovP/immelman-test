@@ -23,4 +23,14 @@ export default class AppMutations extends Mutations<state> {
   SET_CURRENT_CHARACTER(item: SwapiCharacterModel | null) {
     Vue.set(this.state, "currentCharacter", item);
   }
+
+  PUSH_TO_HISTORY(item: {id: number, name: string}) {
+    if (!this.state.history.find(el => el.name === item.name && el.id === item.id)) {
+      this.state.history.push(item);
+    }
+  }
+
+  CLEAR_HISTORY() {
+    Vue.set(this.state, "history", []);
+  }
 }

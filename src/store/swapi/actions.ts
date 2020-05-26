@@ -40,4 +40,12 @@ export default class AppActions extends Actions<state, getters, mutations, AppAc
   async removeCurrentCharacter(): Promise<any> {
     return this.commit('SET_CURRENT_CHARACTER',null);
   }
+
+  async pushToHistory(item: {id: number, name: string}): Promise<any> {
+    return this.commit('PUSH_TO_HISTORY', item);
+  }
+
+  async clearHistory(): Promise<any> {
+    return this.commit('CLEAR_HISTORY')
+  }
 }

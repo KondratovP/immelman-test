@@ -22,4 +22,8 @@ export default class AppGetters extends Getters<state> {
   get currentCharacter(): SwapiCharacterModel | null {
     return this.state.currentCharacter;
   }
+
+  get history(): Array<{id: number, name: string}> {
+    return this.state.history
+  }
 }

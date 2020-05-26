@@ -1,5 +1,5 @@
 <template>
-  <v-card v-if="character" class="mx-auto my-12" max-width="374">
+  <v-card class="mx-auto my-12" max-width="374">
     <v-img height="250" src="@/assets/default.png" contain />
 
     <v-card-title v-html="character.name" />
@@ -26,11 +26,10 @@
       </v-btn>
     </v-card-actions>
   </v-card>
-  <div v-else>sorry, something went wrong</div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from "vue-property-decorator";
+import { Vue, Component, Watch } from "vue-property-decorator";
 import { SwapiCharacterModel } from "@/types/swapiModels";
 import { swapiMapper } from "@/store/swapi";
 
@@ -53,8 +52,16 @@ export default class CharacterComponent extends Mappers {
   mounted() {
     if (this.currentCharacter) {
       this.character = this.currentCharacter;
+    } else {
+      this.$router.push("/");
     }
   }
+
+  @Watch("currentCharacter")
+  replaceChar(item: SwapiCharacterModel) {
+    this.character = item;
+  }
+
   beforeDestroy() {
     this.removeCurrentCharacter();
   }

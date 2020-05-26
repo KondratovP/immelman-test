@@ -6,6 +6,7 @@ export interface SwapiStateModel {
   currentItems: Array<SwapiCharacterModel | undefined>;
   currentCharacter: SwapiCharacterModel | null;
   totalItems: number;
+  history: Array<{id: number, name: string}>;
 }
 
 export default class SwapiState implements SwapiStateModel {
@@ -14,4 +15,5 @@ export default class SwapiState implements SwapiStateModel {
   currentItems = [];
   currentCharacter = null;
   totalItems = 0;
+  history = [] as Array<{id: number, name: string}>;
 }

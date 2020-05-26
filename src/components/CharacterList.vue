@@ -47,7 +47,8 @@ const Mappers = Vue.extend({
     ...swapiMapper.mapActions([
       "initCharacters",
       "searchThroughCharacters",
-      "updateCurrentCharacter"
+      "updateCurrentCharacter",
+      "pushToHistory"
     ])
   }
 });
@@ -81,14 +82,15 @@ export default class CharacterList extends Mappers {
     }
   }
 
-  public pushCurrentCharacter(item: SwapiCharacterModel) {
+  public async pushCurrentCharacter(item: SwapiCharacterModel) {
     const cloned = { ...item };
     const id = Number(
       cloned.url.replace("http://swapi.dev/api/people/", "").replace("/", "")
     );
-    this.updateCurrentCharacter(id).then(() => {
-      this.$router.push({ name: "Character", params: { name: item.name } });
-    });
+    const name = item.name;
+    await this.updateCurrentCharacter(id);
+    await this.pushToHistory({ id, name });
+    this.$router.push({ name: "Character", params: { name } });
   }
 
   @Watch("currentItems")
