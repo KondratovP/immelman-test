@@ -1,11 +1,12 @@
 <template>
-  <div class="home">
-    <span> charcter </span>
-  </div>
+  <character-component />
 </template>
 
 <script>
 export default {
-  name: "character-view"
+  name: "character-view",
+  components: {
+    "character-component": () => import("@/components/CharacterComponent.vue")
+  }
 };
 </script>

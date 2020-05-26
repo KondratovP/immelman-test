@@ -18,6 +18,12 @@ const routes: Array<RouteConfig> = [
       /* webpackChunkName: "character-view" */
       import("../views/Character/index.vue"),
     props: true
+  },
+  {
+    path: "*",
+    component: () =>
+    /* webpackChunkName: "not-found" */
+    import("../views/NotFound.vue"),
   }
 ];
 

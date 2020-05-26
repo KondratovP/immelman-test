@@ -1,13 +1,17 @@
-import { swapiCharacterModel } from "@/types/swapiModels";
+import { SwapiCharacterModel } from "@/types/swapiModels";
 
 export interface SwapiStateModel {
   currentPage: number;
-  currentItems: Array<swapiCharacterModel | undefined>;
-  currentCharacter: swapiCharacterModel | null;
+  currentSearch: string;
+  currentItems: Array<SwapiCharacterModel | undefined>;
+  currentCharacter: SwapiCharacterModel | null;
+  totalItems: number;
 }
 
 export default class SwapiState implements SwapiStateModel {
   currentPage = 1;
+  currentSearch = "";
   currentItems = [];
   currentCharacter = null;
+  totalItems = 0;
 }

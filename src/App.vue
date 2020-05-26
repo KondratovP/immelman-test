@@ -1,5 +1,5 @@
 <template>
-  <v-app color="secondary">
+  <v-app>
     <router-view />
   </v-app>
 </template>
@@ -12,5 +12,3 @@ export default Vue.extend({
   data: () => ({})
 });
 </script>
-
-<style lang="scss" scoped></style>

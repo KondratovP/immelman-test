@@ -16,7 +16,7 @@ export function toDateStr(date: Date | moment.Moment | string): DateStr {
       return dateString;
     }
   }
-  throw new Error(`Shouldn't get here (invalid toDateStr provided): ${date}`);
+  throw new Error(`invalid toDateStr provided: ${date}`);
 }
 
 enum DateStrBrand {}

@@ -2,14 +2,14 @@ import { DateStr } from "./dateString";
 
 export type urlString = string;
 
-export interface swapiCharactersResponse {
+export interface SwapiCharactersResponse {
   count: number;
   next: urlString | null;
   previous: urlString | null;
-  results: Array<swapiCharacterModel>;
+  results: Array<SwapiCharacterModel>;
 }
 
-export interface swapiCharacterModel {
+export interface SwapiCharacterModel {
   name: string;
   height: number;
   mass: number;
